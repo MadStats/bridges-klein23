@@ -11,7 +11,8 @@ get.bridges = function(state, year) {
                as.character(states$state[which(states$name == state)]), 
                gsub(pattern = "\\d{2}(\\d{2})", replacement = "\\1", x=year), 
                ".txt", sep="")
-  return(read.csv(link, quote=""))
+  data = read.csv(link, quote="")
+  return(data[,c(1,2,9,11,28,30)])
 }
 
 # EXAMPLE for 2015 Wisconsin bridges:
